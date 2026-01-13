@@ -1,0 +1,13 @@
+{
+    "name": "ducky/template",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "PHOENIX\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10",
+	    "phpunit/php-invoker": "^4.0"
+    }
+}
