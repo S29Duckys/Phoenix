@@ -19,7 +19,7 @@ class UserManager {
 
     public function find(String $username):User | false
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE username = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM tp_accounts WHERE username = ?");
         $stmt->execute(array(
             $username
         ));
@@ -29,13 +29,13 @@ class UserManager {
     }
 
     public function all() {
-        $stmt = $this->bdd->query('SELECT * FROM User');
+        $stmt = $this->bdd->query('SELECT * FROM tp_accounts');
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS,"PHOENIX\Models\User");
     }
 
     public function store($password) {
-        $stmt = $this->bdd->prepare("INSERT INTO User(id, username, password, admin) VALUES (?, ?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO tp_accounts(id_account, username, password, admin) VALUES (?, ?, ?, ?)");
         $stmt->execute(array(
             uniqid(),
             $_POST["username"],
@@ -45,19 +45,19 @@ class UserManager {
     }
 
     public function getAllUsers() {
-        $stmt = $this->bdd->prepare("SELECT * FROM user ORDER BY id ASC");
+        $stmt = $this->bdd->prepare("SELECT * FROM tp_accounts ORDER BY id_account ASC");
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
     public function findById($id) {
-        $stmt = $this->bdd->prepare("SELECT * FROM user WHERE id = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM tp_accounts WHERE id_account = ?");
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
 
     public function updateAdminStatus($userId, $status) {
-        $stmt = $this->bdd->prepare("UPDATE user SET admin = ? WHERE id = ?");
+        $stmt = $this->bdd->prepare("UPDATE tp_accounts SET admin = ? WHERE id_account = ?");
         return $stmt->execute([$status, $userId]);
     }
 }

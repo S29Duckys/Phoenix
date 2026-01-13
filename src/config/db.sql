@@ -27,7 +27,8 @@ CREATE TABLE tp_accounts (
     tel VARCHAR(15),
     num_carte VARCHAR(16),
     crypto VARCHAR(3),
-    conditions TINYINT(1) DEFAULT 0
+    conditions TINYINT(1) DEFAULT 0,
+    admin TINYINT(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- =========================
