@@ -128,21 +128,14 @@ table {
   border-spacing: 0;
 }
 
-
-
-
-
-
-
-
 /* ================= css page ================= */
-
 
 /* ============ VARIABLES & COLORS ============ */
 :root {
   --primary-blue: #0066cc;
   --secondary-blue: #004fa3;
   --light-blue: #e6f2ff;
+  --teal-light: #5eb3b8;
   --white: #ffffff;
   --text-dark: #333333;
   --text-light: #666666;
@@ -171,7 +164,8 @@ table {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 15px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ============ SEPARATOR ============ */
@@ -277,7 +271,11 @@ button[type="submit"] {
   width: 100%;
   padding: 14px;
   margin-top: 15px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--secondary-blue)
+  );
   color: var(--white);
   font-size: 16px;
   font-weight: 600;
@@ -327,37 +325,229 @@ button[type="submit"]:active {
   text-decoration: none;
 }
 
+/* ============ HOMEPAGE STYLING ============ */
+
+/* Main container */
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Header and Navigation */
+main > header {
+  background: var(--white);
+  padding: 20px 40px;
+  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+main > header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main > header img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+main > header img:hover {
+  transform: scale(1.05);
+}
+
+main > header nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+main > header nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+}
+
+main > header nav a:hover {
+  color: var(--primary-blue);
+  border-bottom-color: var(--primary-blue);
+}
+
+/* Hero Section with Background Image */
+main > section {
+  flex: 1;
+  background-image: url("/img/caraibes1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+main > section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 102, 204, 0.15);
+  z-index: 1;
+}
+
+main > section button {
+  position: relative;
+  z-index: 2;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  background: var(--white);
+  border: 1px solid var(--primary-blue);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+}
+
+main > section button:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 102, 204, 0.35);
+}
+
+main > section button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 102, 204, 0.25);
+}
+
+/* Footer - Categories Section */
+main > footer {
+  background: var(--teal-light);
+  padding: 30px;
+  text-align: center;
+}
+
+main > footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main > footer li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+main > footer li:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+main > footer i {
+  font-size: 20px;
+}
+
 /* ============ RESPONSIVE DESIGN ============ */
-@media (max-width: 600px) {
-  .formLogin,
-  .formRegister {
-    margin: 20px;
-    padding: 25px;
+@media (max-width: 768px) {
+  main > header {
+    padding: 15px 20px;
   }
 
-  .formLogin h1,
-  .formRegister h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-
-  .labelInput {
+  main > header nav {
     flex-direction: column;
-    align-items: stretch;
+    gap: 15px;
   }
 
-  .labelInput label {
+  main > header img {
+    height: 40px;
+  }
+
+  main > header nav ul {
+    flex-direction: column;
+    gap: 15px;
     width: 100%;
-    margin-bottom: 5px;
   }
 
-  .labelInput input {
-    padding: 10px 12px;
+  main > header nav a {
     font-size: 14px;
   }
 
-  .error {
-    padding-left: 0;
+  main > section button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  main > footer ul {
+    gap: 20px;
+  }
+
+  main > footer li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  main > header {
+    padding: 10px 15px;
+  }
+
+  main > header nav ul {
+    gap: 10px;
+  }
+
+  main > header img {
+    height: 35px;
+  }
+
+  main > section button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  main > footer {
+    padding: 20px 15px;
+  }
+
+  main > footer ul {
+    gap: 15px;
+  }
+
+  main > footer li {
+    font-size: 11px;
+  }
+
+  main > footer i {
+    font-size: 16px;
   }
 }
 
@@ -373,9 +563,20 @@ button[type="submit"]:active {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .formLogin,
 .formRegister {
   animation: slideDown 0.4s ease-out;
 }
 
-
+main > section {
+  animation: fadeIn 0.6s ease-out;
+}

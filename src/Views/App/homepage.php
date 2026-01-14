@@ -9,7 +9,18 @@ if (!isset($_SESSION['user'])) {
 ?>
 
 <main>
-    <p>Hello, World!</p>
+    <header>
+        <nav>
+            <img src="/img/logo.png" alt="Logo">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Choisir une destination</a></li>
+                <li><a href="/">Réserver & payer</a></li>
+        </nav>
+    </header>
+    <section>
+        <button>Choisire mon séjourtout de suite !</button>
+    </section>
 </main>
 
 <?php
