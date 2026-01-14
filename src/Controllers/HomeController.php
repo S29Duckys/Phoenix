@@ -2,6 +2,8 @@
 
 namespace PHOENIX\Controllers;
 
+use PHOENIX\Models\CatalogueManager;
+
 class HomeController
 {
     public function __construct() {}
@@ -13,16 +15,19 @@ class HomeController
 
     public function catalogue()
     {
-        require VIEWS . 'App/catalogue.php';
+        $catalogueManager = new CatalogueManager();
+        $travels = $catalogueManager->all();
+        
+        require VIEWS . 'App/CataloguePage.php';
     }
 
     public function reservation()
     {
-        require VIEWS . 'App/reservation.php';
+        require VIEWS . 'App/ReservationPage.php';
     }
 
     public function confirmation()
     {
-        require VIEWS . 'App/confirmation.php';
+        require VIEWS . 'App/ConfirmationPage.php';
     }
 }

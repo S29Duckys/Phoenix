@@ -28,7 +28,6 @@ CREATE TABLE tp_accounts (
     num_carte VARCHAR(16),
     crypto VARCHAR(3),
     conditions TINYINT(1) DEFAULT 0,
-    admin TINYINT(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- =========================
@@ -70,3 +69,37 @@ CREATE TABLE tp_orders (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+ALTER TABLE tp_accounts
+ADD COLUMN admin TINYINT(1) NOT NULL DEFAULT 0;
+
+
+INSERT INTO tp_category (name_category) VALUES
+('Plage'),
+('Culture'),
+('Aventure');
+
+
+INSERT INTO tp_travels (name, description, image, price, id_category) VALUES
+(
+    'Voyage aux Caraïbes',
+    'Séjour paradisiaque aux Caraïbes avec plages de sable blanc et eau turquoise.',
+    '/img/caraibes1.jpg',
+    1499.99,
+    1
+),
+(
+    'Découverte de Bali',
+    'Voyage culturel et détente à Bali entre temples, rizières et plages.',
+    '/img/caraibes1.jpg',
+    1299.00,
+    2
+),
+(
+    'Road trip aux États-Unis',
+    'Traversez les États-Unis de la côte Est à la côte Ouest.',
+    '/img/caraibes1.jpg',
+    1899.50,
+    3
+);

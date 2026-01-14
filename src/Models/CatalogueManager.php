@@ -23,8 +23,7 @@ class CatalogueManager
 
     public function all()
     {
-        $stmt = $this->bdd->query('SELECT * FROM tp_travel');
-
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "PHOENIX\Models\Choice");
+        $stmt = $this->bdd->query('SELECT * FROM tp_travels'); 
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "PHOENIX\Models\Catalogue");
     }
 }
