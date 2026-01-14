@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
             <img src="/img/logo.png" alt="Logo">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/">Choisir une destination</a></li>
+                <li><a href="/catalogue">Choisir une destination</a></li>
                 <li><a href="/">Réserver & payer</a></li>
         </nav>
     </header>
