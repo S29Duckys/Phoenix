@@ -1,10 +1,10 @@
 <?php
-ob_start();
+// ob_start();
 
 
-if (!isset($_SESSION['user'])) {
-    header('Location: /auth/login/');
-}
+// if (!isset($_SESSION['user'])) {
+//     header('Location: /auth/login/');
+// }
 
 ?>
 
@@ -15,7 +15,7 @@ if (!isset($_SESSION['user'])) {
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/catalogue">Choisir une destination</a></li>
-                <li><a href="/">Réserver & payer</a></li>
+                <!-- <li><a href="/">Réserver & payer</a></li> -->
         </nav>
     </header>
     <section>
@@ -25,5 +25,5 @@ if (!isset($_SESSION['user'])) {
 
 <?php
 
-$content = ob_get_clean();
-require VIEWS . 'layout.php';
+// $content = ob_get_clean();
+// require VIEWS . 'layout.php';

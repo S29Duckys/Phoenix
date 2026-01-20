@@ -41,7 +41,7 @@ class UserManager
 
     public function store($password)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO tp_accounts(id_account, username, password, admin) VALUES (?, ?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO tp_accounts (id_account, username, password, admin) VALUES (?, ?, ?, ?)");
         $stmt->execute(array(
             uniqid(),
             $_POST["username"],

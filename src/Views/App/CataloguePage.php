@@ -1,9 +1,9 @@
 <?php
-ob_start();
+// ob_start();
 
-if (!isset($_SESSION['user'])) {
-    header('Location: /auth/login/');
-}
+// if (!isset($_SESSION['user'])) {
+//     header('Location: /auth/login/');
+// }
 
 ?>
 
@@ -17,12 +17,12 @@ if (!isset($_SESSION['user'])) {
                 <h3><?= htmlspecialchars($travel->getTravelName()) ?></h3>
                 <p><?= htmlspecialchars($travel->getTravelDescription()) ?></p>
                 <p class="price"><?= number_format($travel->getTravelPrice(), 2) ?>€</p>
-                <button class="book-btn">Réserver</button>
+                <a href="/reservation" class="book-btn">Réserver</a>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
 
 <?php
-$content = ob_get_clean();
-require VIEWS . 'layout.php';
+// $content = ob_get_clean();
+// require VIEWS . 'layout.php';

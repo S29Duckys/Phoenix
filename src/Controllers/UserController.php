@@ -73,7 +73,7 @@ class UserController {
 
             if ($res && password_verify($_POST['password'], $res->getPassword())) {
                 $_SESSION["user"] = [
-                    "id" => $res->getId(),
+                    "id" => $res->getIdAccount(),
                     "username" => $res->getUsername(),
                     "admin" => $res->getAdmin()
                 ];
